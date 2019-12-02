@@ -1,30 +1,33 @@
 import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
 public class Palindrome
 {
-    public static void main(String[] args)
+  public static void main(String[] args)
+  {
+    int rep;
+    if(JOptionPane.showConfirmDialog(null, "This program checks if a string is a palindrome. Would you like to use it?", "Palindrome Checker", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == 0) rep = 1;
+    else rep = 0;
+    while(rep > 0)
     {
-        int rep = 1;
-            int yn = JOptionPane.showConfirmDialog(null, "This is a program is a palindrome tester. Would you like to use it?", "Palindrome", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            while(yn == 0 && rep == 1)
-            {
-                rep --;
-                String str = JOptionPane.showInputDialog(null, "Please input a string to be checked.", "Palindrome", JOptionPane.QUESTION_MESSAGE);
-                if(isPalindrome(str) == true) JOptionPane.showMessageDialog(null, str + " is a palindrome!");
-                else JOptionPane.showMessageDialog(null, str + " is not a palindrome!");
-                if(JOptionPane.showConfirmDialog(null, "Would you like to reuse the program?", "Palindrome", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) rep = 1;
-            }
+      rep --;
+      String str = JOptionPane.showInputDialog(null, "Please enter a string to be checked", "Palindrome Checker", JOptionPane.QUESTION_MESSAGE);
+      if(isPalindrome(str) == true) JOptionPane.showMessageDialog(null, "Your string is a palindrome!", "Palindrome Checker", JOptionPane.INFORMATION_MESSAGE);
+      else JOptionPane.showMessageDialog(null, "Your string is not a palindrome", "Palindrome Checker", JOptionPane.INFORMATION_MESSAGE);
+      if(JOptionPane.showConfirmDialog(null, "Would you like to use the program again?", "Palindrome Checker", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) rep = 1;
+      System.out.println(rep);
     }
-    public static String reverseString(String str)
-    {
-        String rev = "";
-        int length = str.length() - 1;
-        for(int i = 0; i <= length; length -- ) rev = rev + str.charAt(length);
-        return rev;
-    }
-    public static boolean isPalindrome(String str)
-    {
-        if(reverseString(str).equalsIgnoreCase(str)) return true;
-        else return false;
-    }
+  }
+/////////////////////////////////////////////////////
+  public static String reverseString(String str)
+  {
+    String res = "";
+    for(int length = str.length() - 1; length >= 0; length --)
+      res = res + str.charAt(length);
+    return res;
+  }
+/////////////////////////////////////////////////////
+  public static boolean isPalindrome(String str)
+  {
+    if(str.equalsIgnoreCase(reverseString(str))) return true;
+    else return false;
+  }
 }
