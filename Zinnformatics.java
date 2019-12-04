@@ -6,14 +6,20 @@ public class Zinnformatics
 {
     public static void main(String[] args)
     {
-        //asks the user for their company's name
-        String comp = JOptionPane.showInputDialog(null, "This program will allow you to place an order at Zinnformatics.\nPlease enter your company name.", "Zinnformatics", JOptionPane.QUESTION_MESSAGE);
+      int rep = 1;
+      while(rep == 1)
+      {
+        rep --;
+          //asks the user for their company's name
+          String comp = JOptionPane.showInputDialog(null, "This program will allow you to place an order at Zinnformatics.\nPlease enter your company name.", "Zinnformatics", JOptionPane.QUESTION_MESSAGE);
         
-        //asks the user for the amount of packages they would like to buy 
-        int quantity = Integer.parseInt(JOptionPane.showInputDialog(null, "Please enter the amount of packages you would like to buy.", "Zinnformatics", JOptionPane.QUESTION_MESSAGE));
+          //asks the user for the amount of packages they would like to buy 
+          int quantity = Integer.parseInt(JOptionPane.showInputDialog(null, "Please enter the amount of packages you would like to buy.", "Zinnformatics", JOptionPane.QUESTION_MESSAGE));
         
-        //displays the percentage discount and calculates their final total cost
-        JOptionPane.showMessageDialog(null, "Thank you for your order " +  comp + "! You have order " + quantity + " packages at a " + discount(quantity) * 100 + "% discount. Your final cost will be $" + zinnformatics(quantity) * (1 - discount(quantity)) + "0.", "Zinnformatics", JOptionPane.INFORMATION_MESSAGE);
+          //displays the percentage discount and calculates their final total cost
+          JOptionPane.showMessageDialog(null, "Thank you for your order " +  comp + "! You have order " + quantity + " packages at a " + discount(quantity) * 100 + "% discount. Your final cost will be $" + zinnformatics(quantity) * (1 - discount(quantity)) + "0.", "Zinnformatics", JOptionPane.INFORMATION_MESSAGE);
+          if(JOptionPane.showConfirmDialog(null, "Would you like to use the program again?", "Palindrome Checker", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) rep = 1;
+      }
     }
 
     public static int zinnformatics(int quantity)
