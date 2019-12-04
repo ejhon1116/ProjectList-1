@@ -19,12 +19,11 @@ public class Palindrome
       String str = JOptionPane.showInputDialog(null, "Please enter a string to be checked", "Palindrome Checker", JOptionPane.QUESTION_MESSAGE);
       
       //determines whether the string is or isnt a palindrome
-      if(isPalindrome(str) == true) JOptionPane.showMessageDialog(null, "Your string is a palindrome!", "Palindrome Checker", JOptionPane.INFORMATION_MESSAGE);
-      else JOptionPane.showMessageDialog(null, "Your string is not a palindrome", "Palindrome Checker", JOptionPane.INFORMATION_MESSAGE);
+      if(isPalindrome(str) == true) JOptionPane.showMessageDialog(null, "The reversed string is: " + reverseString(str) + ". It is the same as the original string: " + str + ". Therefore, your string is a palindrome!", "Palindrome Checker", JOptionPane.INFORMATION_MESSAGE);
+      else JOptionPane.showMessageDialog(null, "The reversed string is: " + reverseString(str) + ". It is not the same as the original string: " + str + ". Therefore, your string is not a palindrome!", "Palindrome Checker", JOptionPane.INFORMATION_MESSAGE);
      
       //asks the user if they want to use the program again
       if(JOptionPane.showConfirmDialog(null, "Would you like to use the program again?", "Palindrome Checker", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) rep = 1;
-      System.out.println(rep);
     }
   }
   
@@ -32,15 +31,14 @@ public class Palindrome
   public static String reverseString(String str)
   {
     String res = "";
-    for(int length = str.length() - 1; length >= 0; length --)
-      res = res + str.charAt(length);
+    for(int length = str.length() - 1; length >= 0; length --) res = res + str.charAt(length);
     return res;
   }
   
   //determines whether a string is the same as it is when it is backwards
   public static boolean isPalindrome(String str)
   {
-    if(str.equalsIgnoreCase(reverseString(str))) return true;
+    if(str.equals(reverseString(str))) return true;
     else return false;
   }
 }
