@@ -18,7 +18,7 @@ public class Zinnformatics
         
           //displays the percentage discount and calculates their final total cost
           JOptionPane.showMessageDialog(null, "Thank you for your order " +  comp + "! You have order " + quantity + " packages at a " + discount(quantity) * 100 + "% discount. Your final cost will be $" + zinnformatics(quantity) * (1 - discount(quantity)) + "0.", "Zinnformatics", JOptionPane.INFORMATION_MESSAGE);
-          if(JOptionPane.showConfirmDialog(null, "Would you like to use the program again?", "Palindrome Checker", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) rep = 1;
+          if(JOptionPane.showConfirmDialog(null, "Would you like to order more packages again?", "Zinnformatics", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) rep = 1;
       }
     }
 
