@@ -14,13 +14,14 @@ public class MailingLabel
       rep --;
       
       //asks the user to input a string
-      String str = JOptionPane.showInputDialog(null, "Please enter the string to be used.", "Mailing Label", JOptionPane.QUESTION_MESSAGE);
+      String str = JOptionPane.showInputDialog(null, "Please enter the delimeted string to be used.", "Mailing Label", JOptionPane.QUESTION_MESSAGE);
       
       //asks the user to input a delimeter
       String del = JOptionPane.showInputDialog(null, "Please input the string's delimeter.", "Mailing Label", JOptionPane.QUESTION_MESSAGE);
       
       //outputs the new string
-      JOptionPane.showMessageDialog(null, "The new string is:\n" + mailingLabel(str, del));
+      JOptionPane.showMessageDialog(null, "The new string is:\n--------------------------------\n" + mailingLabel(str, del) + "\n--------------------------------", "Mailing Label", JOptionPane.INFORMATION_MESSAGE);
+      System.out.println("The new string is:\n--------------------------------\n" + mailingLabel(str, del) + "\n--------------------------------");
       
       //asks the user if they would like to use the program again
       if(JOptionPane.showConfirmDialog(null, "Would you like to use the program again?", "Mailing Label", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) rep = 1;
@@ -28,14 +29,7 @@ public class MailingLabel
   }
   public static String mailingLabel(String str, String del)
   {
-    //reverses the string
-    int i;
-    String res = "";
-    String[] arr = str.split(del);
-    int length = arr.length - 1;
-    int length2 = length;
-    for(i = 0; i <= length && i != length2; i ++) res = res + arr[i] + "\n";
-    if(i == length2) res = res + arr[i];
-    return res;
+    //replaces all of a user inputted delimeter with a new line
+    return str.replaceAll(del, "\n");
   }
 }
