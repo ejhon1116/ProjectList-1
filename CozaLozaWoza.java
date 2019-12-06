@@ -37,7 +37,7 @@ public class CozaLozaWoza
             JOptionPane.showMessageDialog(null, "The output is: \n" + fin);
             
             //asks the user if they want to repeat usingthe program
-            if(JOptionPane.showConfirmDialog(null, "Would you like to use the program again?", "Palindrome Checker", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) rep = 1;
+            if(JOptionPane.showConfirmDialog(null, "Would you like to use the program again?", "Coza Loza Woza", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) rep = 1;
         }
     }
     
