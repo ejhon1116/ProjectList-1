@@ -34,16 +34,16 @@ public class CozaLozaWoza
         //determines what to replace the number with
         for(int i = 1; i <= n; i ++)
         {
-                String y = "";
-                if(i % 3 == 0) y = y + "Coza";
-                if(i % 5 == 0) y = y + "Loza";
-                if(i % 7 == 0) y = y + "Woza";
-                if(i == n) fin = fin + y;
-                else if(i != n) fin = fin + y + " ";
-                if(i == n && i % 3 != 0 && i % 5 != 0 && i % 7 != 0) fin = fin + " " + i;
-                else if(i % 3 != 0 && i % 5 != 0 && i % 7 != 0) fin = fin + i + " ";
-                if(i % 11 == 0) fin = fin + "\n";
-            }
-            return fin;
-        }  
-    }
+            String y = "";
+            if(i % 3 == 0) y = y + "Coza";
+            if(i % 5 == 0) y = y + "Loza";
+            if(i % 7 == 0) y = y + "Woza";
+            if(i == n && (i % 3 == 0 || i % 5 == 0|| i % 7 == 0)) fin = fin + y;
+            else if(i != n && (i % 3 == 0 || i % 5 == 0|| i % 7 == 0)) fin = fin + y + " ";
+            if(i == n && i % 3 != 0 && i % 5 != 0 && i % 7 != 0) fin = fin + i;
+            else if(i % 3 != 0 && i % 5 != 0 && i % 7 != 0) fin = fin + i + " ";
+            if(i % 11 == 0) fin = fin + "\n";
+        }
+        return fin;
+    }  
+}
