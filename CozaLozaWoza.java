@@ -20,21 +20,8 @@ public class CozaLozaWoza
             //asks the user for a number to go up to
             int x = Integer.parseInt(JOptionPane.showInputDialog(null, "What number would you like to go up to?", "CozaLozaWoza", JOptionPane.QUESTION_MESSAGE));
             
-            //concatenates all the numbers from 1 to the user inputted number, running cozaLozaWoza when it runs into multiples of 3, 5 or 7
-            for(int i = 1; i <= x; i ++)
-            {
-                if(i % 3 == 0 || i % 5 == 0 || i  % 7 == 0) 
-                {
-                    if(i == x) fin = fin + cozaLozaWoza(i);
-                    else fin = fin + cozaLozaWoza(i) + " ";
-                }
-                else if(i == x) fin = fin + i;
-                else fin = fin + i + " ";
-                if(i % 11 == 0) fin = fin + "\n";
-            }
-            
             //displays the output to the user
-            JOptionPane.showMessageDialog(null, "The output is: \n" + fin);
+            JOptionPane.showMessageDialog(null, "The output is: \n" + cozaLozaWoza(x));
             
             //asks the user if they want to repeat using the program
             if(JOptionPane.showConfirmDialog(null, "Would you like to use the program again?", "Coza Loza Woza", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) rep = 1;
@@ -43,12 +30,20 @@ public class CozaLozaWoza
     
     public static String cozaLozaWoza(int n)
     {
-      
+      String fin = "";
         //determines what to replace the number with
-        String y = "";
-        if(n % 3 == 0) y = y + "Coza";
-        if(n % 5 == 0) y = y + "Loza";
-        if(n % 7 == 0) y = y + "Woza";
-        return y;
+        for(int i = 1; i <= n; i ++)
+        {
+                String y = "";
+                if(i % 3 == 0) y = y + "Coza";
+                if(i % 5 == 0) y = y + "Loza";
+                if(i % 7 == 0) y = y + "Woza";
+                if(i == n) fin = fin + y;
+                else if(i != n) fin = fin + y + " ";
+                if(i == n && i % 3 != 0 && i % 5 != 0 && i % 7 != 0) fin = fin + " " + i;
+                else if(i % 3 != 0 && i % 5 != 0 && i % 7 != 0) fin = fin + i + " ";
+                if(i % 11 == 0) fin = fin + "\n";
+            }
+            return fin;
+        }  
     }
-}
