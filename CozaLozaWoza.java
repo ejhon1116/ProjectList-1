@@ -21,12 +21,16 @@ public class CozaLozaWoza
             int x = Integer.parseInt(JOptionPane.showInputDialog(null, "What number would you like to go up to?", "CozaLozaWoza", JOptionPane.QUESTION_MESSAGE));
             
             //displays the output to the user
-            JOptionPane.showMessageDialog(null, "The output is: \n" + cozaLozaWoza(x));
-            
-            //asks the user if they want to repeat using the program
-            if(JOptionPane.showConfirmDialog(null, "Would you like to use the program again?", "Coza Loza Woza", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) rep = 1;
+            if(x >= 1) 
+            {
+              System.out.println(cozaLozaWoza(x));
+              JOptionPane.showMessageDialog(null, "The output is: \n" + cozaLozaWoza(x), "CozaLozaWoza", JOptionPane.INFORMATION_MESSAGE);
+            }
+              else JOptionPane.showMessageDialog(null, "Please chose an integer greater than 0", "CozaLozaWoza", JOptionPane.ERROR_MESSAGE); 
+              //asks the user if they want to repeat using the program
+              if(JOptionPane.showConfirmDialog(null, "Would you like to use the program again?", "Coza Loza Woza", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) rep = 1;
+            }
         }
-    }
     
     public static String cozaLozaWoza(int n)
     {
