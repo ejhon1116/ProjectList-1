@@ -1,4 +1,3 @@
-
 /* MailingLabel.java | Author: Ethan Jhong *
  * It removes a user chosen delimeter from 
  * a user inputted string                  */
